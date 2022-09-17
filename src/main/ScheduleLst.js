@@ -34,6 +34,7 @@ const ScheduleLst =(props) => {
                     <th>제목</th>
                     <th>시작날짜</th>
                     <th>종료날짜</th>
+                    <th>수정</th>
                     <th>삭제</th>
                 </tr>
                 </thead>
@@ -49,6 +50,7 @@ const ScheduleLst =(props) => {
                                     <td>{list.sch_NAME}</td>
                                     <td>{list.sch_STRDATE.substr(0,10)}</td>
                                     <td>{list.sch_EDDATE.substr(0,10)}</td>
+                                    <td><button>수정</button></td>
                                     <td><button>삭제</button></td>
                                 </tr>
                                 );
