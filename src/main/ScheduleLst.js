@@ -20,20 +20,27 @@ const ScheduleLst =(props) => {
     };
 
     const delSchedule = (event) => {
-        setSeq(event.target.getAttribute('data-msg'));
+       
+    if(window.confirm("일정을 삭제하시겠습니까?")){
+        
+        setSeq(event.target.getAttribute('data-msg')); // 삭제할때 첫번재에서는 seq값을 제대로 못받아옴
+        console.log("sch_seq : "+sch_seq);
+        
         const api = axios.create({
             baseURL:'https://schedulep-be.herokuapp.com' //heroku서버
             });
-          api.put('/UpdateScheduleOne',{params:{
-            seq:sch_seq
-            }}).then(function(response){
+          api.delete('/DeleteScheduleOne',{params:{
+            sch_seq:sch_seq
+          }}).then(function(response){
             console.log(response.data);
             if(response.data=="200ok"){
               alert('일정이 정상적으로 삭제되었습니다.');
-              props.history.push('/');
+              history.goBack();
             }
           });
-        
+        } else {
+
+        }
       };
 
     const closeModal = () => {
