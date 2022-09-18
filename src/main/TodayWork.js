@@ -59,7 +59,7 @@ const TodayWork = () => {
                 {
                     //data
                     data.map((list) =>{
-                        console.log(list);
+                        //console.log(list);
                         if(list !== null){
                             console.log("not null!");
                             return(<li key={list.sch_SEQ}>{list.sch_NAME}</li>);
